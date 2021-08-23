@@ -6,7 +6,7 @@ import { Grid, ThemeProvider, Divider } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import dayjs from "dayjs";
 // prettier-ignore
-import { faCalendarWeek, faFutbol, faHandsHelping, faHome, faStopwatch} from "@fortawesome/free-solid-svg-icons";
+import { faCalendarWeek, faFutbol, faHandsHelping, faHome, faStopwatch, faUserTie} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { theme, useStyles } from "./styles";
@@ -136,8 +136,16 @@ const Scores = ({ id, home, away, stadium, referee, date, expanded, setExpanded 
                 <Divider />
               </Typography>
               <div className={classes.goals}>
-                <Typography>{home.Manager}</Typography>
-                <Typography>{away.Manager}</Typography>
+                <Typography>
+                  {" "}
+                  <FontAwesomeIcon icon={faUserTie} />
+                  {home.Manager}
+                </Typography>
+                <Typography>
+                  {" "}
+                  <FontAwesomeIcon icon={faUserTie} />
+                  {away.Manager}
+                </Typography>
               </div>
             </CardContent>
             <Typography style={{ fontWeight: "700" }} gutterBottom>
