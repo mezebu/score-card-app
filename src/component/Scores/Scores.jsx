@@ -13,7 +13,15 @@ import { lime } from "@material-ui/core/colors";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Grid } from "@material-ui/core";
 import dayjs from "dayjs";
-import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
+import {
+  faCalendarWeek,
+  faFutbol,
+  faHandsHelping,
+  faHome,
+  faStopwatch,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Divider } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,6 +64,23 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
   },
+  spacing: {
+    marginTop: 5,
+  },
+  goals: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  awayGoals: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+  },
+  homeGoals: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+  },
 }));
 
 const Scores = ({
@@ -72,9 +97,12 @@ const Scores = ({
   const classes = useStyles();
 
   return (
-    <Grid item xs={12} sm={6} md={6} lg={6}>
+    <Grid item xs={12} sm={12} md={12} lg={6}>
       <Card className={classes.root}>
-        <Typography>{stadium}</Typography>
+        <div className={classes.spacing} />
+        <Typography>
+          <FontAwesomeIcon icon={faHome} /> {stadium}
+        </Typography>
         <CardContent>
           <div className={classes.CardContent}>
             <div className={classes.cardItems}>
@@ -140,12 +168,39 @@ const Scores = ({
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography paragraph>Method:</Typography>
-            <CalendarTodayIcon />
-            <Typography gutterBottom>
-              {dayjs(date).format("ddd, D MMM - h:mmA")}
+            <Typography style={{ fontWeight: "700" }} gutterBottom>
+              Goals
             </Typography>
-            <Typography>{referee}</Typography>
+            <div className={classes.goals}>
+              <div className={classes.homeGoals}>
+                {home.goals.map(({ player, assist, time }) => (
+                  <Typography>
+                    <FontAwesomeIcon icon={faFutbol} /> {player}
+                    {" - "}
+                    <FontAwesomeIcon icon={faHandsHelping} /> {assist}
+                    {" - "}
+                    <FontAwesomeIcon icon={faStopwatch} /> {time}
+                    <Divider variant="middle" />
+                  </Typography>
+                ))}
+              </div>
+              <div className={classes.awayGoals}>
+                {away.goals.map(({ player, assist, time }) => (
+                  <Typography>
+                    <FontAwesomeIcon icon={faFutbol} /> {player}
+                    {" - "}
+                    <FontAwesomeIcon icon={faHandsHelping} /> {assist}
+                    {" - "}
+                    <FontAwesomeIcon icon={faStopwatch} /> {time}
+                    <Divider variant="middle" />
+                  </Typography>
+                ))}
+              </div>
+            </div>
+            <Typography>
+              <FontAwesomeIcon icon={faCalendarWeek} size="lg" />
+            </Typography>
+            <Typography>{dayjs(date).format("ddd, D MMM - h:mmA")}</Typography>
           </CardContent>
         </Collapse>
       </Card>
