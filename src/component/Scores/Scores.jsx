@@ -16,7 +16,7 @@ const Scores = ({ id, home, away, stadium, referee, date, expanded, setExpanded 
   const classes = useStyles();
 
   return (
-    <Grid item xs={12} sm={12} md={12} lg={6}>
+    <Grid item xs={12} sm={12} md={6} lg={6}>
       <ThemeProvider theme={theme}>
         <Card className={classes.root}>
           <div className={classes.spacing} />
@@ -138,12 +138,12 @@ const Scores = ({ id, home, away, stadium, referee, date, expanded, setExpanded 
               <div className={classes.goals}>
                 <Typography>
                   {" "}
-                  <FontAwesomeIcon icon={faUserTie} />
+                  <FontAwesomeIcon icon={faUserTie} /> {" "}
                   {home.Manager}
                 </Typography>
                 <Typography>
                   {" "}
-                  <FontAwesomeIcon icon={faUserTie} />
+                  <FontAwesomeIcon icon={faUserTie} /> {" "}
                   {away.Manager}
                 </Typography>
               </div>

@@ -34,3 +34,7 @@ body {
   text-align: center;
   background-color: linear-gradient(25deg, #d0fdfd, #f7c0c0);
 }
+
+.spacing {
+  margin-top: 10px;
+}

@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Grid, Container } from "@material-ui/core";
+import axios from "axios";
 import "normalize.css";
-import "./App.css";
 
-import Scores from "./component/Scores/Scores.jsx";
+import styles from "./App.module.css";
+
+import { Scores, NavBar } from "./component";
 
 const url = "https://5f5dec4e8b224700167c53f1.mockapi.io/api/v1/results";
 
 const App = () => {
   const [scores, setScores] = useState([]);
   const [expanded, setExpanded] = useState(null);
-
-  console.log(scores);
 
   useEffect(() => {
     const getScores = async () => {
@@ -27,7 +26,9 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div className={styles.App}>
+      <NavBar />
+      <div className={styles.spacing} />
       <Container>
         <Grid container spacing={2}>
           {scores.map(({ id, home, away, data, image, referee, stadium }) => (
