@@ -5,7 +5,7 @@ import "normalize.css";
 
 import styles from "./App.module.css";
 
-import { Scores, NavBar } from "./component";
+import { Scores, NavBar } from "./components";
 
 const url = "https://5f5dec4e8b224700167c53f1.mockapi.io/api/v1/results";
 
