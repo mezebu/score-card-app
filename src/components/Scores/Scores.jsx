@@ -36,7 +36,7 @@ const Scores = ({ id, home, away, stadium, referee, date, expanded, setExpanded 
                       <img
                         src={home.logoUrl}
                         height="38px"
-                        width="38px"
+                        width="37px"
                         alt="club-logo"
                       />
                     </Avatar>
