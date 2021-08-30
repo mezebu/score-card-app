@@ -96,13 +96,16 @@ const Scores = ({ id, home, away, stadium, referee, date, expanded, setExpanded 
             <CardContent>
               <Divider />{" "}
               <div className={classes.goals}>
-                <Typography style={{ fontWeight: "700" }}>
+                <Typography style={{ fontWeight: "700", fontSize: "1.3vw" }}>
                   {home.name}
                 </Typography>
-                <Typography style={{ fontWeight: "700" }} gutterBottom>
+                <Typography
+                  style={{ fontWeight: "700", fontSize: "1.3vw" }}
+                  gutterBottom
+                >
                   Goals{" "}
                 </Typography>
-                <Typography style={{ fontWeight: "700" }}>
+                <Typography style={{ fontWeight: "700", fontSize: "1.3vw" }}>
                   {away.name}
                 </Typography>
               </div>{" "}
@@ -110,7 +113,11 @@ const Scores = ({ id, home, away, stadium, referee, date, expanded, setExpanded 
               <div className={classes.goals}>
                 <div className={classes.homeGoals}>
                   {home.goals.map(({ player, assist, time }) => (
-                    <Typography key={time} style={{ fontSize: 13 }} paragraph>
+                    <Typography
+                      key={time}
+                      style={{ fontSize: "1.1vw" }}
+                      paragraph
+                    >
                       <FontAwesomeIcon icon={faFutbol} /> {player}
                       {" - "}
                       <FontAwesomeIcon icon={faHandsHelping} /> {assist}
@@ -121,7 +128,11 @@ const Scores = ({ id, home, away, stadium, referee, date, expanded, setExpanded 
                 </div>
                 <div className={classes.awayGoals}>
                   {away.goals.map(({ player, assist, time }) => (
-                    <Typography key={time} style={{ fontSize: 13 }} paragraph>
+                    <Typography
+                      key={time}
+                      style={{ fontSize: "1.1vw" }}
+                      paragraph
+                    >
                       <FontAwesomeIcon icon={faFutbol} /> {player}
                       {" - "}
                       <FontAwesomeIcon icon={faHandsHelping} /> {assist}
@@ -138,13 +149,11 @@ const Scores = ({ id, home, away, stadium, referee, date, expanded, setExpanded 
               <div className={classes.goals}>
                 <Typography>
                   {" "}
-                  <FontAwesomeIcon icon={faUserTie} /> {" "}
-                  {home.Manager}
+                  <FontAwesomeIcon icon={faUserTie} /> {home.Manager}
                 </Typography>
                 <Typography>
                   {" "}
-                  <FontAwesomeIcon icon={faUserTie} /> {" "}
-                  {away.Manager}
+                  <FontAwesomeIcon icon={faUserTie} /> {away.Manager}
                 </Typography>
               </div>
             </CardContent>
