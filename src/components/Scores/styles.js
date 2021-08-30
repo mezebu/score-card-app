@@ -59,6 +59,13 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "flex-start",
   },
+  smallFonts: {
+    fontSize: "1.2vw",
+  },
+  largeFonts: {
+    fontSize: "1.3vw",
+    fontWeight: 700,
+  },
 }));
 
 export const theme = createTheme({

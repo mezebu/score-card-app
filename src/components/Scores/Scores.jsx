@@ -96,16 +96,13 @@ const Scores = ({ id, home, away, stadium, referee, date, expanded, setExpanded 
             <CardContent>
               <Divider />{" "}
               <div className={classes.goals}>
-                <Typography style={{ fontWeight: "700", fontSize: "1.3vw" }}>
+                <Typography className={classes.largeFonts}>
                   {home.name}
                 </Typography>
-                <Typography
-                  style={{ fontWeight: "700", fontSize: "1.3vw" }}
-                  gutterBottom
-                >
+                <Typography className={classes.largeFonts} gutterBottom>
                   Goals{" "}
                 </Typography>
-                <Typography style={{ fontWeight: "700", fontSize: "1.3vw" }}>
+                <Typography className={classes.largeFonts}>
                   {away.name}
                 </Typography>
               </div>{" "}
@@ -115,7 +112,7 @@ const Scores = ({ id, home, away, stadium, referee, date, expanded, setExpanded 
                   {home.goals.map(({ player, assist, time }) => (
                     <Typography
                       key={time}
-                      style={{ fontSize: "1.1vw" }}
+                      className={classes.smallFonts}
                       paragraph
                     >
                       <FontAwesomeIcon icon={faFutbol} /> {player}
@@ -130,7 +127,7 @@ const Scores = ({ id, home, away, stadium, referee, date, expanded, setExpanded 
                   {away.goals.map(({ player, assist, time }) => (
                     <Typography
                       key={time}
-                      style={{ fontSize: "1.1vw" }}
+                      className={classes.smallFonts}
                       paragraph
                     >
                       <FontAwesomeIcon icon={faFutbol} /> {player}
@@ -142,25 +139,25 @@ const Scores = ({ id, home, away, stadium, referee, date, expanded, setExpanded 
                   ))}
                 </div>
               </div>
-              <Typography style={{ fontWeight: "700" }}>
+              <Typography className={classes.largeFonts}>
                 <Divider /> Managers
                 <Divider />
               </Typography>
               <div className={classes.goals}>
-                <Typography>
+                <Typography className={classes.smallFonts}>
                   {" "}
                   <FontAwesomeIcon icon={faUserTie} /> {home.Manager}
                 </Typography>
-                <Typography>
+                <Typography className={classes.smallFonts}>
                   {" "}
                   <FontAwesomeIcon icon={faUserTie} /> {away.Manager}
                 </Typography>
               </div>
             </CardContent>
-            <Typography style={{ fontWeight: "700" }} gutterBottom>
+            <Typography className={classes.largeFonts} gutterBottom>
               <Divider variant="middle" /> Referee <Divider variant="middle" />
             </Typography>
-            <Typography>{referee}</Typography>
+            <Typography className={classes.smallFonts}>{referee}</Typography>
           </Collapse>
         </Card>
       </ThemeProvider>
